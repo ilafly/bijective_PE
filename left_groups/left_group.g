@@ -26,8 +26,10 @@ all_E_G:=function(n)
   return list;
 end;
 
-all_left_group:=function(n)
-  local t,p,semigroups,s,m, i;
+all_left_groups:=function(n)
+  local t,p,semigroups,s,m, i,f;
+  f := IO_File(Concatenation("data/left_groups", String(n), ".g"), "w");
+  IO_WriteLine(f,"semigroups:=");
   semigroups:=[];
     for p in all_E_G(n) do
       # Print(p,"\n\n");
@@ -38,5 +40,6 @@ all_left_group:=function(n)
       s:=MultiplicationTable(ReesMatrixSemigroup(p[2],[m]));
       Add(semigroups,s);
   od;
+  IO_WriteLine(f,semigroups);
   return semigroups;
 end;
