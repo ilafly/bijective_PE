@@ -1,5 +1,3 @@
-
-
 all_pairs:=function(n)
   local divisors,result;
   divisors:=DivisorsInt(n);
@@ -41,5 +39,8 @@ all_left_groups:=function(n)
       Add(semigroups,s);
   od;
   IO_WriteLine(f,semigroups);
+  IO_WriteLine(f, ";");
+  IO_Flush(f);
+  IO_Close(f);
   return semigroups;
 end;
