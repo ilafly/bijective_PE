@@ -1,0 +1,20 @@
+Running savilerow. I found 1 solutions.
+Running savilerow. I found 1 solutions.
+Running savilerow. I found 1 solutions.
+Running savilerow. I found 1 solutions.
+Running savilerow. I found 1 solutions.
+Running savilerow. I found 3 solutions.
+Running savilerow. I found 3 solutions.
+Running savilerow. I found 6 solutions.
+Error, user interrupt in
+  return fail
+ ; at /usr/local/Cellar/gap/4.11.0/libexec/pkg/io-4.7.0/gap/io.gi:161 called from 
+IO_File( filename, "r" ) at bijective_enuemerate.g:133 called from
+keep_pentagon( n, output ) at bijective_enuemerate.g:187 called from
+run( filename, semigroups[k], n, k ) at bijective_enuemerate.g:227 called from
+<function "construct">( <arguments> )
+ called from read-eval loop at *stdin*:1
+you can 'return;'
+brk> quit;
+Running savilerow. 
+gap> 
