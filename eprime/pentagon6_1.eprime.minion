@@ -1,0 +1,41 @@
+MINION 3
+# CSETopLevel_number = 0
+# CSETopLevel_eliminated_expressions = 0
+# CSETopLevel_total_size = 0
+# CSE_active_number = 0
+# CSE_active_eliminated_expressions = 0
+# CSE_active_total_size = 0
+**VARIABLES**
+**TUPLELIST**
+S 6 6
+1 2 3 4 5 6 
+2 1 4 3 6 5 
+3 6 5 2 1 4 
+4 5 6 1 2 3 
+5 4 1 6 3 2 
+6 3 2 5 4 1 
+**VARIABLES**
+ALIAS S[6,6]=[[1, 2, 3, 4, 5, 6], [2, 1, 4, 3, 6, 5], [3, 6, 5, 2, 1, 4], [4, 5, 6, 1, 2, 3], [5, 4, 1, 6, 3, 2], [6, 3, 2, 5, 4, 1]]
+**TUPLELIST**
+perms 5 6
+1 2 5 6 3 4 
+1 6 3 2 5 4 
+1 6 5 4 3 2 
+1 4 3 6 5 2 
+1 4 5 2 3 6 
+**VARIABLES**
+ALIAS perms[5,6]=[[1, 2, 5, 6, 3, 4], [1, 6, 3, 2, 5, 4], [1, 6, 5, 4, 3, 2], [1, 4, 3, 6, 5, 2], [1, 4, 5, 2, 3, 6]]
+**TUPLELIST**
+inverses 5 6
+1 2 5 6 3 4 
+1 4 3 6 5 2 
+1 6 5 4 3 2 
+1 6 3 2 5 4 
+1 4 5 2 3 6 
+**VARIABLES**
+ALIAS inverses[5,6]=[[1, 2, 5, 6, 3, 4], [1, 4, 3, 6, 5, 2], [1, 6, 5, 4, 3, 2], [1, 6, 3, 2, 5, 4], [1, 4, 5, 2, 3, 6]]
+**SEARCH**
+PRINT[]
+VARORDER STATIC []
+**CONSTRAINTS**
+true()**EOF**

@@ -1,0 +1,6 @@
+Created output file for domain filtering eprime/pentagon6_4.eprime.minion
+Created output file eprime/pentagon6_4.eprime.minion
+Solution: language ESSENCE' 1.0 letting T be [[1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6]] 
+Solution: language ESSENCE' 1.0 letting T be [[1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [5, 6, 1, 2, 3, 4],  [3, 4, 5, 6, 1, 2],  [3, 4, 5, 6, 1, 2],  [5, 6, 1, 2, 3, 4]] 
+Solution: language ESSENCE' 1.0 letting T be [[1, 2, 3, 4, 5, 6],  [1, 2, 3, 4, 5, 6],  [5, 6, 1, 2, 3, 4],  [5, 6, 1, 2, 3, 4],  [3, 4, 5, 6, 1, 2],  [3, 4, 5, 6, 1, 2]] 
+Created information file eprime/pentagon6_4.eprime.info
