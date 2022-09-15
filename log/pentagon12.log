@@ -1,0 +1,16 @@
+Error, user interrupt in
+  iter!.pos[l] := iter!.pos[l] + 1
+ ; at /usr/local/Cellar/gap/4.11.0/libexec/lib/stbc.gi:1780 called from 
+func( elm ) at /usr/local/Cellar/gap/4.11.0/libexec/lib/coll.gi:1398 called from
+FilteredOp( C, func ) at /usr/local/Cellar/gap/4.11.0/libexec/lib/coll.gi:1376 called from
+Filtered( SymmetricGroup( n ), function ( f )
+      return is_automorphism( f, m );
+  end ) at bijective_enuemerate.g:24 called from
+automorphism_group( m ) at bijective_enuemerate.g:70 called from
+fix( m ) at bijective_enuemerate.g:80 called from
+...  at *stdin*:2
+you can 'return;'
+brk> quit;
+gap> bijectives_solutions(6);
+8
+gap> quit;

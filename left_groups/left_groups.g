@@ -32,11 +32,13 @@ all_left_groups:=function(n)
     for p in all_E_G(n) do
       # Print(p,"\n\n");
       m:=[];
-      for i in [1..p[1]] do
-        Add(m,One(p[2]));
-      od;
-      s:=MultiplicationTable(ReesMatrixSemigroup(p[2],[m]));
-      Add(semigroups,s);
+      if p[1] <> n then
+        for i in [1..p[1]] do
+          Add(m,One(p[2]));
+        od;
+        s:=MultiplicationTable(ReesMatrixSemigroup(p[2],[m]));
+        Add(semigroups,s);
+      fi;
   od;
   IO_WriteLine(f,semigroups);
   IO_WriteLine(f, ";");
