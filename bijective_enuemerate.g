@@ -25,6 +25,25 @@ automorphism_group := function(m)
   return Group(l);
 end;
 
+s_xy := function(obj, x, y)
+  return [obj!.semigroup[x][y], obj!.theta[x][y]];
+end;
+
+is_bijective := function(obj)
+  local c, n, x, y;
+
+  n := obj!.size;
+  c := Cartesian([1..n],[1..n]);
+
+  for x in c do
+    if not Number(c, z->x=s_xy(obj, z[1], z[2])) = 1 then
+      return false;
+    fi;
+  od;
+  return true;
+end;
+
+
 twist_matrix := function(obj, f)
   local i,j,m,n;
   n := Size(obj);
@@ -150,30 +169,6 @@ keep_pentagon := function(n, filename)
 end;
 
 
-
-# read_file := function(n, filename, T)
-#   local l, k, x, m, f, done;
-#
-#   l := [];
-#   k := 0;
-#
-#   f := IO_File(filename, "r");
-#   done := false;
-#
-#   while not done do
-#     x := IO_ReadLine(f);
-#     if StartsWith(x, "Created information file") then
-#       done := true;
-#     elif StartsWith(x, "Solution") then
-#       m := EvalString(String(x{[46..Size(x)]}));
-#       k := k+1;
-#       Add(l, m);
-#     fi;
-#   od;
-#   Print("I found ", k, " solutions\n");
-#   return l;
-# end;
-
 run := function(filename, m, n, k)
   local s, l, f, x, t, output;
 
@@ -231,4 +226,47 @@ construct := function(n)
   mytime := Int(Float((t1-t0)/10^6));
   Print("I constructed ", l, " solutions in ", mytime, "ms (=", StringTime(mytime), ")\n");
 
+end;
+
+bijectives_solutions := function(n)
+  local solutions, k, semigroups,semigroup,bijectives,list,s,t,thetas,x,filename,f;
+  semigroups:=read_left_groups(n);
+  bijectives:=[];
+  t:=0;
+  for k in [1..Size(semigroups)] do
+    Read(Concatenation("data/pentagon", String(n), "_", String(k), ".g"));
+    semigroup:=EvalString("semigroup");
+    thetas:=EvalString("sols");
+    t := t+Size(thetas);
+
+    list:=[];
+    for x in thetas do
+      Add(list, rec( semigroup := semigroup, theta := x, size := Size(semigroup)));
+    od;
+
+    filename:=Concatenation("data/bijectives/bijectives", String(n),"_", String(k), ".g");
+    f := IO_File(filename, "w");
+    IO_WriteLine(f, "semigroup:=");
+    IO_WriteLine(f, Concatenation(String(semigroups[k]),";"));
+    IO_WriteLine(f, "solutions:=[");
+    for s in list do
+      if is_bijective(s) then
+        Add(bijectives,s);
+        IO_WriteLine(f, Concatenation(String(s!.theta), ","));
+      fi;
+    od;
+    IO_WriteLine(f, "];\n");
+    IO_Flush(f);
+    IO_Close(f);
+  od;
+  
+  filename:=Concatenation("data/bijectives/bijectives", String(n), ".g");
+  f := IO_File(filename, "w");
+  for s in bijectives do
+    IO_WriteLine(f, s);
+  od;
+  IO_Flush(f);
+  IO_Close(f);
+
+  return Size(bijectives);
 end;
